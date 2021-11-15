@@ -1,0 +1,10 @@
+<div class="bg-secondary">
+  <div class="container d-flex justify-content-between py-2">
+    <h1 class="m-0">Book</h1>
+    <a *ngIf="showSignUp" class="btn btn-dark" routerLink="/sign-up">Sign Up</a>
+    <a *ngIf="showLogin" class="btn btn-dark" routerLink="/login">Login</a>
+    <div *ngIf="showLogOut">
+      <button class="btn btn-dark" (click)="logOut()">Log Out</button>
+    </div>
+  </div>
+</div>
