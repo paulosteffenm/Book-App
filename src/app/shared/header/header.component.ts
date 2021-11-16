@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public get showLogOut(): boolean {
-    const user = localStorage.getItem('user');
+    const user = localStorage.getItem('userKey');
     if (user !== null && user !== undefined) {
       return true;
     }
@@ -33,7 +33,7 @@ export class HeaderComponent implements OnInit {
   }
 
   public logOut(): void {
-    localStorage.removeItem('user');
+    localStorage.removeItem('userKey');
     this.router.navigate(['login']);
   }
 

@@ -1,1 +1,16 @@
-<p>login works!</p>
+<div class="form-signin mt-5 bg-white rounded shadow-sm">
+  <form [formGroup]="loginForm">
+    <h1 class="h3 mb-3 fw-normal">Login</h1>
+
+    <div class="form-floating">
+      <input type="text" formControlName="User" name="User" class="form-control" id="User" placeholder="User">
+      <label for="User">User</label>
+    </div>
+    <div class="form-floating">
+      <input type="password" formControlName="Password" name="Password" class="form-control" id="floatingPassword" placeholder="Password">
+      <label for="Password">Password</label>
+    </div>
+
+    <button class="w-100 btn btn-lg btn-dark" (click)="login()">Login</button>
+  </form>
+</div>
