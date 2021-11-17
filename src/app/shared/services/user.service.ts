@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { UserLogin } from '../models/user-login.model';
 import { ApiService } from './api.service';
 import { SignUp } from '../models/sign-up.model';
+import { map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -14,7 +15,7 @@ export class UserService {
 
   public login(userLogin: UserLogin): Observable<string>{
 
-    return this.apiService.post('user/login', userLogin);
+    return this.apiService.post('user/login', userLogin).pipe(map((token: any) => token.token));
   }
 
   public signUp(signUp: SignUp): Observable<string>{

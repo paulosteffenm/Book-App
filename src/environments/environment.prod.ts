@@ -1,4 +1,6 @@
+
 export const environment = {
-  production: true,
-  baseUrl: 'http://localhost:3001/'
+  production: false,
+  baseUrl: 'http://localhost:3001/',
+  googleApi: 'https://www.googleapis.com/books/v1/volumes'
 };

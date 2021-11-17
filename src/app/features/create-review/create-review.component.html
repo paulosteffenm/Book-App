@@ -1,0 +1,58 @@
+<div class="container mt-3 mb-4">
+
+  <h2 class="mb-3 font-weight-light">
+    Review
+  </h2>
+
+  <div class="card shadow-sm">
+    <form [formGroup]="createReviewForm" autocomplete="off">
+      <div class="card-body">
+        <div class="row">
+          <div class="form-group col-4">
+            <label class="required-field" for="Title">Title</label>
+            <input [ngClass]="{'border-danger': isInvalid('Title')}" type="text" class="form-control" id="Title" name="Title" formControlName="Title" />
+          </div>
+
+          <div class="form-group col-8">
+            <label class="required-field" for="Book">Book</label>
+            <ng-select [ngClass]="{'border-danger': isInvalid('Book')}" [items]="books$ | async" labelForId="Book" bindLabel="Title" [hideSelected]="true"
+              formControlName="Book" [trackByFn]="trackByFn" [minTermLength]="2" [loading]="bookLoading"
+              typeToSearchText="Please enter 2 or more characters" [typeahead]="bookInput$">
+              <ng-template ng-option-tmp let-item="item" let-index="index" let-search="searchTerm">
+                <div class="d-flex flex-row">
+                  <img src="{{item.Thumbnail}}" alt="{{item.Thumbnail}}" width="50" height="75">
+                  <div class="d-flex flex-column">
+                    <div class="ms-2">{{item.Title}}</div>
+                    <small class="ms-2">Year: {{item.PublishedDate}}</small>
+                    <small class="ms-2">Authors: {{item.Authors}}</small>
+                  </div>
+                </div>
+              </ng-template>
+            </ng-select>
+          </div>
+
+          <div class="form-group col-12 mt-3">
+            <label class="required-field" for="Review">Review</label>
+            <textarea [ngClass]="{'border-danger': isInvalid('Review')}" type="text" class="form-control" id="Review" name="Review" formControlName="Review"
+              rows="5"></textarea>
+          </div>
+
+          <div class="form-group col-12 mt-3">
+            <label class="required-field" for="Rating">Rating</label>
+            <bar-rating class="mt-3" id="Rating" name="Rating" formControlName="Rating"  [max]="5"
+              [theme]="'stars'" [showText]="true" [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome', 'Perfect']">
+            </bar-rating>
+          </div>
+        </div>
+
+        <div class="card-body d-flex justify-content-end">
+          <button type="button" class="btn btn-primary" (click)="submitReview()">
+            Submit
+          </button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+
+</div>

@@ -41,6 +41,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['myProfile']);
   }
 
+  public submitReview(): void {
+    this.router.navigate(['submitReview']);
+  }
+
   ngOnInit(): void {
   }
 
