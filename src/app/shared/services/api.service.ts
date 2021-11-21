@@ -20,17 +20,17 @@ export class ApiService {
 
   googleApiGet(
     path: string,
-  ): Observable<Root> {
+  ): Observable<any> {
     return this.http
-      .get<Root>(`${environment.googleApi}${path}`)
+      .get<any>(`${environment.googleApi}${path}`)
       .pipe(
-        map((data: Root) => data),
+        map((data: any) => data),
       )
       .pipe(catchError(this.formatErrors));
   }
 
-  public get(path: string): Observable<any> {
-    return this.http.get<any>(`${environment.baseUrl}${path}`).pipe(catchError(this.formatErrors));
+  public get(path: string, options: any = {}): Observable<any> {
+    return this.http.get<any>(`${environment.baseUrl}${path}`, options).pipe(catchError(this.formatErrors));
   }
 
   public post(path: string, body: Object, options: any = {}): Observable<any> {

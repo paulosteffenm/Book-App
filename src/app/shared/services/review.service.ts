@@ -5,6 +5,8 @@ import { ApiService } from './api.service';
 import { SignUp } from '../models/sign-up.model';
 import { SubmitReview } from '../models/submit-review.model';
 import { HttpHeaders } from '@angular/common/http';
+import { ReviewCard } from '../models/review-card.model';
+import { find, map } from 'rxjs/operators';
 
 
 @Injectable({
@@ -21,11 +23,30 @@ export class ReviewService {
 
   constructor(private apiService: ApiService) { }
 
-  public submit(submitReview: SubmitReview): Observable<string>{
+  public getAll(): Observable<Array<ReviewCard>> {
     const httpsOptions = {
       headers: this.defaultHeaders,
     };
-    console.log(localStorage.getItem('userKey'));
+
+    return this.apiService.get('review', httpsOptions);
+  }
+
+  public getById(reviewId: number): Observable<ReviewCard> {
+    const httpsOptions = {
+      headers: this.defaultHeaders,
+    };
+
+    return this.apiService.get(`review`, httpsOptions).pipe(
+      map((reviews) => {
+        return reviews.find((review: ReviewCard) => review.id === reviewId)
+      })
+    );
+  }
+
+  public submit(submitReview: SubmitReview): Observable<string> {
+    const httpsOptions = {
+      headers: this.defaultHeaders,
+    };
     return this.apiService.post('review', submitReview, httpsOptions);
   }
 

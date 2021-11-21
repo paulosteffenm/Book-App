@@ -1,0 +1,10 @@
+<div class="container">
+  <div class="card mt-3" (click)="openDetail()">
+    <div class="p-3">
+      <bar-rating [max]="5" [readOnly]="true" [rate]="review.score" [theme]="'stars'"></bar-rating>
+      <h5 class="card-title">{{review.title}}</h5>
+      <small class="card-subtitle text-muted ">{{review.created_at | date}}</small>
+      <p class="card-text">{{review.text | slice:0:80}}...</p>
+    </div>
+  </div>
+</div>

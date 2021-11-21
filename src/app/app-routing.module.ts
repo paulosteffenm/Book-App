@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'sign-up', loadChildren: () => import('./features/signup/signup.module').then((m) => m.SignUpModule) },
   { path: 'home', loadChildren: () => import('./features/home/home.module').then((m) => m.HomeModule) },
   { path: 'submitReview', loadChildren: () => import('./features/create-review/create-review.module').then((m) => m.CreateReviewModule) },
+  { path: 'reviewDetails/:reviewId', loadChildren: () => import('./features/review-details/review-details.module').then((m) => m.ReviewDetailsModule) },
 ];
 
 @NgModule({

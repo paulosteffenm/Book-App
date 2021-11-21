@@ -4,7 +4,8 @@
     <a *ngIf="showSignUp" class="btn btn-secondary" routerLink="/sign-up">Sign Up</a>
     <a *ngIf="showLogin" class="btn btn-secondary" routerLink="/login">Login</a>
     <div *ngIf="showLogOut" class="d-flex align-items-center">
-      <button class="btn btn-warning me-3" (click)="submitReview()">Submit Review</button>
+      <button class="btn btn-warning me-3" *ngIf="showSubmiteReview" (click)="submitReview()">Submit Review</button>
+      <button class="btn btn-warning me-3" *ngIf="showHome" (click)="goToHome()">Home</button>
       <button class="btn btn-secondary" (click)="logOut()">Log Out</button>
     </div>
   </div>

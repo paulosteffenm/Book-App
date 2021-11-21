@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
 
   public get showLogin(): boolean {
     if (this.router.url === '/sign-up') {
-      return true
+      return true;
     }
     return false;
   }
@@ -30,6 +30,20 @@ export class HeaderComponent implements OnInit {
       return true;
     }
     return false;
+  }
+
+  public get showHome(): boolean {
+    if (this.router.url === '/home') {
+      return false;
+    }
+    return true;
+  }
+
+  public get showSubmiteReview(): boolean {
+    if (this.router.url === '/submitReview') {
+      return false;
+    }
+    return true;
   }
 
   public logOut(): void {
@@ -43,6 +57,10 @@ export class HeaderComponent implements OnInit {
 
   public submitReview(): void {
     this.router.navigate(['submitReview']);
+  }
+
+  public goToHome(): void {
+    this.router.navigate(['home']);
   }
 
   ngOnInit(): void {

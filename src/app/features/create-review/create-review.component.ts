@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Observable, of, Subject, concat, fromEvent } from 'rxjs';
 import { catchError, distinctUntilChanged, switchMap, tap } from 'rxjs/operators';
@@ -29,7 +30,8 @@ export class CreateReviewComponent implements OnInit {
   constructor(
     private bookService: BookService,
     private toastrService: ToastrService,
-    private reviewService: ReviewService
+    private reviewService: ReviewService,
+    private router: Router
   ) { }
 
   private loadBook(): void {
@@ -52,9 +54,10 @@ export class CreateReviewComponent implements OnInit {
     return item.Title;
   }
 
-  public submitReview():void {
-    if(!this.createReviewForm.valid){
+  public submitReview(): void {
+    if (!this.createReviewForm.valid) {
       this.toastrService.error('Fill all the mandatory fields!');
+      return;
     }
 
     const submitReview: SubmitReview = {
@@ -64,10 +67,7 @@ export class CreateReviewComponent implements OnInit {
       text: this.createReviewForm.get('Review')?.value,
     }
 
-    this.reviewService.submit(submitReview).subscribe((data) => {
-      console.log(data);
-      //TODO: redirect to home
-    });
+    this.reviewService.submit(submitReview).subscribe(() => this.router.navigate(['home']));
   }
 
   public isInvalid(field: string): boolean {

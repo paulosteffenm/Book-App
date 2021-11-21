@@ -19,6 +19,6 @@ export class UserService {
   }
 
   public signUp(signUp: SignUp): Observable<string>{
-    return this.apiService.post('user/register', signUp);
+    return this.apiService.post('user/register', signUp).pipe(map((token: any) => token.token));
   }
 }
