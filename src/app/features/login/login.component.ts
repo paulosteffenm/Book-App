@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
   public login(): void {
     if (!this.loginForm.valid) {
-      this.toastrService.error('Some fields are invalid');
+      this.toastrService.error('Some fields are invalidd');
       return;
     }
     const userLogin: UserLogin = {
