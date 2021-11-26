@@ -1,10 +1,10 @@
 version: '3.3'
 services:
-    web:
-        build: .
-        restart: unless-stopped
-        ports:
-            - "80:80"
+    db:
+        image: paulosteffenm/book-app:latest
+        restart: always
+        expose:
+            - '80:80'
         networks:
             - back
 
