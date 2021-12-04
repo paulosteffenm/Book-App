@@ -33,7 +33,7 @@
 
           <div class="form-group col-12 mt-3">
             <label class="required-field" for="Review">Review</label>
-            <textarea [ngClass]="{'border-danger': isInvalid('Review')}" type="text" class="form-control" id="Review" name="Review" formControlName="Review"
+            <textarea maxlength="255" [ngClass]="{'border-danger': isInvalid('Review')}" type="text" class="form-control" id="Review" name="Review" formControlName="Review"
               rows="5"></textarea>
           </div>
 

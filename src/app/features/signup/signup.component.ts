@@ -38,6 +38,7 @@ export class SignupComponent implements OnInit {
     }
     this.userService.signUp(userLogin).subscribe((token) => {
       localStorage.setItem('userKey', token);
+      localStorage.setItem('userEmail', this.signUpForm.get('Email')?.value);
       this.router.navigate(['home']);
     });
 

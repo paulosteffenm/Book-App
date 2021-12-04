@@ -48,6 +48,7 @@ export class HeaderComponent implements OnInit {
 
   public logOut(): void {
     localStorage.removeItem('userKey');
+    localStorage.removeItem('userEmail');
     this.router.navigate(['login']);
   }
 

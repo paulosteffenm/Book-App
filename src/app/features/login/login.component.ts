@@ -35,6 +35,7 @@ export class LoginComponent implements OnInit {
     }
     this.userService.login(userLogin).subscribe((token) => {
       localStorage.setItem('userKey', token);
+      localStorage.setItem('userEmail', this.loginForm.get('User')?.value);
       this.router.navigate(['home']);
     },
       (error: RootObject ) => {
