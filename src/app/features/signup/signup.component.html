@@ -1,24 +1,56 @@
-<div class="form-signin mt-5 bg-white rounded shadow-sm">
-  <form [formGroup]="signUpForm">
-    <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
+<div class="container">
+  <div class="form-signin mt-5 bg-white rounded shadow-sm">
+    <form [formGroup]="signUpForm">
+      <h1 class="h3 mb-3 fw-normal">Sign Up</h1>
 
-    <div class="form-floating">
-      <input type="text" formControlName="Name" name="Name" class="form-control" id="Name" placeholder="Name">
-      <label for="Name">Name</label>
-    </div>
-    <div class="form-floating">
-      <input type="text" formControlName="LastName" name="LastName" class="form-control" id="LastName" placeholder="LastName">
-      <label for="LastName">Last Name</label>
-    </div>
-    <div class="form-floating">
-      <input type="text" formControlName="Email" name="Email" class="form-control" id="Email" placeholder="Email">
-      <label for="Email">Email</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" formControlName="Password" name="Password" class="form-control" id="floatingPassword" placeholder="Password">
-      <label for="Password">Password</label>
-    </div>
+      <div class="form-floating">
+        <input
+          type="text"
+          formControlName="Name"
+          name="Name"
+          class="form-control"
+          id="Name"
+          placeholder="Name"
+        />
+        <label for="Name">Name</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="text"
+          formControlName="LastName"
+          name="LastName"
+          class="form-control"
+          id="LastName"
+          placeholder="LastName"
+        />
+        <label for="LastName">Last Name</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="text"
+          formControlName="Email"
+          name="Email"
+          class="form-control"
+          id="Email"
+          placeholder="Email"
+        />
+        <label for="Email">Email</label>
+      </div>
+      <div class="form-floating">
+        <input
+          type="password"
+          formControlName="Password"
+          name="Password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Password"
+        />
+        <label for="Password">Password</label>
+      </div>
 
-    <button class="w-100 btn btn-lg btn-dark" (click)="signUp()">Sign Up</button>
-  </form>
+      <button class="w-100 btn btn-lg btn-dark" (click)="signUp()">
+        Sign Up
+      </button>
+    </form>
+  </div>
 </div>
